@@ -57,7 +57,7 @@ def nao_entre_em_panico():
 
 @app.route("/hi")
 def boas_vindas():
-    return render_template("main.html","eae")
+    return render_template("main.html")
 
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 5000))
