@@ -44,7 +44,7 @@ schemaCadastroPessoa = {
 def validation_error(e):
     return jsonify({ 'Erro': e.message, 'Errors': [validation_error.message for validation_error in e.errors]})
 
-@app.route('/pessoa')
+@app.route('/pessoa', methods=['POST'])
 def nao_entre_em_panico():
     if request.headers.get('Authorization') == '42':
         return jsonify({"42": "Nao entra em panico, soh estou fazendo o tcc, e com autorização, hehe!"})
