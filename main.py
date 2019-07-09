@@ -5,10 +5,6 @@ from flask_json_schema import JsonSchema, JsonValidationError
 
 app = Flask(__name__)
 
-if __name__ == "__main__":
-    port = int(os.environ.get("PORT", 5000))
-    app.run(host='0.0.0.0', port=port)
-
 schema = JsonSchema(app)
 ##app.config['MONGO_DBNAME'] = 'TCC.Pessoas'
 ##app.config['MONGO_URI'] = 'mongodb+srv://admin_connect:<#_n2noficial_#>@cluster0-hygoa.gcp.mongodb.net/test?retryWrites=true&w=majority'
@@ -63,3 +59,6 @@ def nao_entre_em_panico():
 def boas_vindas():
     return jsonify({"message": "eae meu!"})
 
+if __name__ == "__main__":
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host='0.0.0.0', port=port)
