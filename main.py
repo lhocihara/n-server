@@ -37,29 +37,29 @@ def index():
 schema = JsonSchema(app)
 ## Definição do schema de validação do Json a ser recebido pela requisição HTTP
 schemaCadastroPessoa = {
-  "title": "Pessoa",
-  "type": "object",
-  "required": ["nome", "cpf", "data_nasc", "genero","email", "senha"],
-  "properties": {
-    "nome": {
-        "type": "string", "pattern": "^[a-zA-Z]+$"
-    },
-    "cpf": {
-        "type": "string", "minLength": 11, "maxLength": 11
-    },
-    "data_nasc": {
-        "type": "string", "format": "date-time"
-    },
-    "genero": {
-        "type": "string", "pattern": "^[M|F|D]$"
-    },
-    "email": {
-        "type" "string"
-    },
-    "senha": {
-        "type": "string", "minLength": 8, "maxLength": 30,
+    "title": "Pessoa",
+    "type": "object",
+    "required": ["nome", "cpf", "data_nasc", "genero", "email", "senha"],
+    "properties": {
+        "nome": {
+            "type": "string", "pattern": "^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$"
+        },
+        "cpf": {
+            "type": "string", "minLength": 11, "maxLength": 11
+        },
+        "data_nasc": {
+            "type": "string", "format": "date-time"
+        },
+        "genero": {
+            "type": "string", "pattern": "^[M|F|D]$"
+        },
+        "email": {
+            "type": "string" "format": "email"
+        },
+        "senha": {
+            "type": "string", "minLength": 8, "maxLength": 30 #Adicionar criptografia
+        }
     }
-  }
 }
 
 ##Definição do endpoint
@@ -70,7 +70,6 @@ def nao_entre_em_panico():
     if request.headers.get('Authorization') == '42':
         return jsonify({"42": "Nao entra em panico, soh estou fazendo o tcc, e com autorização, hehe!"})
     return jsonify({"message": "Nao entra em panico, soh estou fazendo o tcc, utilizando o tcc!"})
-
 
 ##Definição do endpoint
 @app.route("/pessoa", methods=['POST'])
@@ -88,7 +87,6 @@ def Cadastrar_Pessoa():
     else:
         dbcol.insert_one(request.json)
         return ('Cadastro realizado com sucesso, ' + str(request.json['nome']))
-
 
 ## ----------------------------------------------------------
 ## configuração de IP e porta
