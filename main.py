@@ -46,7 +46,7 @@ def validation_error(e):
     return jsonify({ 'Erro': e.message, 'Errors': [validation_error.message for validation_error in e.errors]})
 
 ##Definição do endpoint
-@app.route("/pessoa", methods=['POST'])
+@app.route("/panic", methods=['POST'])
 
 ##O schema a ser validado durante a requisição
 @schema.validate(schemaCadastroPessoa)
