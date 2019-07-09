@@ -44,7 +44,7 @@ app = Flask(__name__)
 # def validation_error(e):
 #     return jsonify({ 'Erro': e.message, 'Errors': [validation_error.message for validation_error in e.errors]})
 
-@app.route('/')
+@app.route('/pessoa')
 def nao_entre_em_panico():
     if request.headers.get('Authorization') == '42':
         return jsonify({"42": "Nao entra em panico, soh estou fazendo o tcc, e com autorização, hehe!"})
