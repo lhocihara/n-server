@@ -72,6 +72,28 @@ def nao_entre_em_panico():
     return jsonify({"message": "Nao entra em panico, soh estou fazendo o tcc, utilizando o tcc!"})
 
 
+##Definição do endpoint
+@app.route("/pessoa", methods=['POST'])
+##O schema a ser validado durante a requisição
+@schema.validate(schemaCadastroPessoa)
+## função  de cadastro inicial de pessoas
+def Cadastrar_Pessoa():
+    ##Requisição do Json
+    if not request.json:
+        return 'ERRO 400, requisição não encontrada'
+    ##Verifica se o CPF já existe no Banco
+    if dbcol.find({'cpf': dict(request.json)['cpf']}).limit(1).count() > 0:
+        return 'Já existe um cadastro com este CPF em nossa base de dados'
+    ##Caso CPF não exista no banco, realiza o cadastro/insere dados no banco
+    else:
+        dbcol.insert_one(request.json)
+        return ('Cadastro realizado com sucesso, ' + str(request.json['nome']))
+
+
+## ----------------------------------------------------------
+## configuração de IP e porta
+## ----------------------------------------------------------
+
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 5000))
     app.run(host='0.0.0.0', port=port)
