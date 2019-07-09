@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-import os, pymongo, dns
+import os, pymongo
 from flask import Flask, jsonify, request
 from flask_json_schema import JsonSchema, JsonValidationError
 
