@@ -57,7 +57,7 @@ def nao_entre_em_panico():
 
 @app.route("/hi")
 def boas_vindas():
-    return jsonify({"message": "eae meu!"})
+    return 'jsonify({"message": "eae meu!"})'
 
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 5000))
