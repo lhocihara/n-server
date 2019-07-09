@@ -55,7 +55,7 @@ def nao_entre_em_panico():
         return jsonify({"42": "Nao entra em panico, soh estou fazendo o tcc, e com autorização, hehe!"})
     return jsonify({"message": "Nao entra em panico, soh estou fazendo o tcc, utilizando o tcc!"})
 
-@app.route("/hi")
+@app.route(["/hi", "/"])
 def boas_vindas():
     return render_template("main.html")
 
