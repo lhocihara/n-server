@@ -40,9 +40,9 @@ app = Flask(__name__)
 
 
 #Setando tratamento de erros na validação
-# @app.errorhandler(JsonValidationError)
-# def validation_error(e):
-#     return jsonify({ 'Erro': e.message, 'Errors': [validation_error.message for validation_error in e.errors]})
+@app.errorhandler(JsonValidationError)
+def validation_error(e):
+    return jsonify({ 'Erro': e.message, 'Errors': [validation_error.message for validation_error in e.errors]})
 
 @app.route('/pessoa')
 def nao_entre_em_panico():
