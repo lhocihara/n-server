@@ -3,7 +3,7 @@ import os, pymongo
 from flask import Flask, jsonify, request, render_template
 from flask_json_schema import JsonSchema, JsonValidationError
 
-app = Flask(__name__)
+app = Flask(__name__, template_folder="/")
 
 schema = JsonSchema(app)
 ##app.config['MONGO_DBNAME'] = 'TCC.Pessoas'
