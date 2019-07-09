@@ -54,7 +54,7 @@ schemaCadastroPessoa = {
             "type": "string", "pattern": "^[M|F|D]$"
         },
         "email": {
-            "type": "string" "format": "email"
+            "type": "string", "format": "email"
         },
         "senha": {
             "type": "string", "minLength": 8, "maxLength": 30 #Adicionar criptografia
