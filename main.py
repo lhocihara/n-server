@@ -31,7 +31,7 @@ def boas_vindas():
 ## Endpoint index
 @app.route("/")
 def index():
-    return render_template("main.html")
+    return render_template("index.html")
 
 ## ----------------------------------------------------------
 ## Rotas dos serviços para o APP
