@@ -7,7 +7,7 @@ app = Flask(__name__)
 schema = JsonSchema(app)
 ##app.config['MONGO_DBNAME'] = 'TCC.Pessoas'
 ##app.config['MONGO_URI'] = 'mongodb+srv://admin_connect:<#_n2noficial_#>@cluster0-hygoa.gcp.mongodb.net/test?retryWrites=true&w=majority'
-mongo = pymongo.MongoClient('mongodb+srv://dev_connect:rgPuzhTgc8HAHFlV@cluster0-hygoa.gcp.mongodb.net/test?retryWrites=true&w=majority')
+mongo = pymongo.MongoClient("mongodb+srv://dev_connect:rgPuzhTgc8HAHFlV@cluster0-hygoa.gcp.mongodb.net/test?retryWrites=true&w=majority")
 db = pymongo.database.Database(mongo, 'TCC')
 dbcol = pymongo.collection.Collection(db, 'TCC.Pessoas')
 
