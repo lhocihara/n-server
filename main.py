@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 import os, pymongo
-from flask import Flask, jsonify, request
+from flask import Flask, jsonify, request, render_template
 from flask_json_schema import JsonSchema, JsonValidationError
 
 app = Flask(__name__)
@@ -57,7 +57,7 @@ def nao_entre_em_panico():
 
 @app.route("/hi")
 def boas_vindas():
-    return 'jsonify({"message": "eae meu!"})'
+    return render_template("main.html","eae")
 
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 5000))
