@@ -3,6 +3,8 @@ import os, pymongo
 from flask import Flask, jsonify, request, render_template
 from flask_json_schema import JsonSchema, JsonValidationError
 
+
+app = Flask(__name__)
 ##app.config['MONGO_DBNAME'] = 'TCC.Pessoas'
 ##app.config['MONGO_URI'] = 'mongodb+srv://admin_connect:<#_n2noficial_#>@cluster0-hygoa.gcp.mongodb.net/test?retryWrites=true&w=majority'
 mongo = pymongo.MongoClient("mongodb://dev_connect:rgPuzhTgc8HAHFlV@cluster0-hygoa.gcp.mongodb.net/test?retryWrites=true&w=majority")
@@ -70,7 +72,6 @@ def nao_entre_em_panico():
     return jsonify({"message": "Nao entra em panico, soh estou fazendo o tcc, utilizando o tcc!"})
 
 
-app = Flask(__name__)
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 5000))
     app.run(host='0.0.0.0', port=port)
