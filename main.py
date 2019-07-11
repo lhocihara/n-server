@@ -57,15 +57,13 @@ schemaCadastroPessoa = {
             "type": "string", "format": "email"
         },
         "senha": {
-            "type": "string", "minLength": 8, "maxLength": 30 #Adicionar criptografia
+            "type": "string", "minLength": 8 #Adicionar criptografia
         }
     }
 }
 
 ##Definição do endpoint
 @app.route("/panic", methods=['POST'])
-##O schema a ser validado durante a requisição
-@schema.validate(schemaCadastroPessoa)
 def nao_entre_em_panico():
     if request.headers.get('Authorization') == '42':
         return jsonify({"42": "Nao entra em panico, soh estou fazendo o tcc, e com autorização, hehe!"})
