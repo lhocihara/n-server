@@ -92,7 +92,7 @@ def Cadastrar_Pessoa():
 
     print(str(request.json))
     ##Verifica se o CPF já existe no Banco
-    if dbcol.find({'cpf': dict(request.json)['cpf']}).limit(1).count() > 0:
+    if dbcol.find({'cpf': request.json['cpf']}).limit(1).count() > 0:
         return 'Já existe um cadastro com este CPF em nossa base de dados'
     ##Caso CPF não exista no banco, realiza o cadastro/insere dados no banco
     else:
