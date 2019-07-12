@@ -105,7 +105,7 @@ def Cadastrar_Pessoa():
             'nome_usuario': str(request.json['nome'])
         }
 
-        return json_retorno
+        return jsonify(json_retorno)
         # return ('Cadastro realizado com sucesso, ' + str(request.json['nome']))
 
 ## ----------------------------------------------------------
