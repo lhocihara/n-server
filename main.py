@@ -85,8 +85,16 @@ def Cadastrar_Pessoa():
         return 'Já existe um cadastro com este CPF em nossa base de dados'
     ##Caso CPF não exista no banco, realiza o cadastro/insere dados no banco
     else:
-        dbcol.insert_one(request.json)
-        return ('Cadastro realizado com sucesso, ' + str(request.json['nome']))
+        id_segredo_gerado = dbcol.insert_one(request.json)
+        json_retorno = {
+            'msg': 'Cadastro realizado com sucesso',
+            'cod': '201',
+            'segredo': id_segredo_gerado,
+            'nome_usuario': str(request.json['nome'])
+        }
+
+        return json_retorno
+        # return ('Cadastro realizado com sucesso, ' + str(request.json['nome']))
 
 ## ----------------------------------------------------------
 ## configuração de IP e porta
