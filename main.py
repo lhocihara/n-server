@@ -39,9 +39,9 @@ schema = JsonSchema(app)
 schemaCadastroPessoa = {
     "title": "Pessoa",
     "type": "object",
-    "required": ["nome", "cpf", "data_nasc", "genero", "email", "senha"],
+    "required": ["nome_completo", "cpf", "data_nasc", "genero", "email", "senha"],
     "properties": {
-        "nome": {
+        "nome_completo": {
             "type": "string", "pattern": "^[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]+$"
         },
         "cpf": {
