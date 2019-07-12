@@ -34,6 +34,13 @@ def index():
 ## Rotas dos serviços para o APP
 ## ----------------------------------------------------------
 
+##Definição do endpoint
+@app.route("/panic", methods=['POST'])
+def nao_entre_em_panico():
+    if request.headers.get('Authorization') == '42':
+        return jsonify({"42": "Nao entra em panico, soh estou fazendo o tcc, e com autorização, hehe!"})
+    return jsonify({"message": "Nao entra em panico, soh estou fazendo o tcc, utilizando o tcc!"})
+
 schema = JsonSchema(app)
 ## Definição do schema de validação do Json a ser recebido pela requisição HTTP
 schemaCadastroPessoa = {
@@ -72,13 +79,6 @@ schemaCadastroPessoa = {
         }
     }
 }
-
-##Definição do endpoint
-@app.route("/panic", methods=['POST'])
-def nao_entre_em_panico():
-    if request.headers.get('Authorization') == '42':
-        return jsonify({"42": "Nao entra em panico, soh estou fazendo o tcc, e com autorização, hehe!"})
-    return jsonify({"message": "Nao entra em panico, soh estou fazendo o tcc, utilizando o tcc!"})
 
 ##Definição do endpoint
 @app.route("/pessoa", methods=['POST'])
