@@ -42,10 +42,21 @@ schemaCadastroPessoa = {
     "required": ["nome", "cpf", "data_nasc", "genero", "email", "senha"],
     "properties": {
         "nome": {
-            "type": "string", "pattern": "^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$"
+            "type": "string", "pattern": "^[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]+$"
         },
         "cpf": {
             "type": "string", "minLength": 11, "maxLength": 11
+        },
+        "rg:": {
+            "type": "object",
+            "properties": {
+                "emissor":{
+                    "type": "string", "minLength": 3, "maxLength": 3
+                },
+                "numero": {
+                    "type": "string", "maxLength": 14
+                }
+            }
         },
         "data_nasc": {
             "type": "string", "format": "date-time"
