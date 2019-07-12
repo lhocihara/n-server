@@ -90,13 +90,14 @@ def Cadastrar_Pessoa():
     if not request.json:
         return 'ERRO 400, requisição não encontrada'
 
-    print(str(request.json))
+    # print(str(request.json))
     ##Verifica se o CPF já existe no Banco
     if dbcol.find({'cpf': request.json['cpf']}).limit(1).count() > 0:
         return 'Já existe um cadastro com este CPF em nossa base de dados'
     ##Caso CPF não exista no banco, realiza o cadastro/insere dados no banco
     else:
         id_segredo_gerado = dbcol.insert_one(request.json)
+        
         json_retorno = {
             'msg': 'Cadastro realizado com sucesso',
             'cod': '201',
