@@ -34,7 +34,7 @@ def index():
 ## Rotas dos serviços para o APP
 ## ----------------------------------------------------------
 
-# schema = JsonSchema(app)
+schema = JsonSchema(app)
 ## Definição do schema de validação do Json a ser recebido pela requisição HTTP
 schemaCadastroPessoa = {
     "title": "Pessoa",
@@ -83,7 +83,7 @@ def nao_entre_em_panico():
 ##Definição do endpoint
 @app.route("/pessoa", methods=['POST'])
 ##O schema a ser validado durante a requisição
-# @schema.validate(schemaCadastroPessoa)
+@schema.validate(schemaCadastroPessoa)
 ## função  de cadastro inicial de pessoas
 def Cadastrar_Pessoa():
     ##Requisição do Json
